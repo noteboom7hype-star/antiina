@@ -3,19 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <title>Antiina</title>
-  <!-- Fonte moderna do Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Ícones do Font Awesome -->
+  <!-- Fonte moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      display: flex;
-      background: #0a0f1c; /* Azul escuro */
+      font-family: 'Roboto Mono', monospace;
+      background: #0a0f1c;
       color: #e0e0e0;
-      transition: background 0.5s ease, color 0.5s ease;
+      height: 100vh;
+      overflow: hidden;
     }
+    /* Splash screen */
+    #splash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #0a0f1c;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      transition: opacity 0.8s ease;
+    }
+    #splash h1 {
+      font-size: 48px;
+      color: #00aaff;
+      margin-bottom: 20px;
+    }
+    #typing {
+      font-size: 18px;
+      color: #0077cc;
+      margin-bottom: 30px;
+      border-right: 2px solid #0077cc;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    #splash button {
+      padding: 12px 24px;
+      background: #00aaff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    #splash button:hover {
+      background: #0077cc;
+      transform: scale(1.05);
+    }
+    /* Sidebar */
     .sidebar {
       width: 220px;
       background: linear-gradient(180deg, #0d1b2a, #1b263b);
@@ -23,7 +64,8 @@
       height: 100vh;
       padding-top: 30px;
       box-shadow: 2px 0 8px rgba(0,0,0,0.4);
-      transition: background 0.5s ease;
+      position: fixed;
+      left: 0; top: 0;
     }
     .sidebar h2 {
       text-align: center;
@@ -31,7 +73,6 @@
       font-size: 22px;
       letter-spacing: 2px;
       color: #00aaff;
-      transition: color 0.5s ease;
     }
     .sidebar a {
       display: flex;
@@ -51,19 +92,14 @@
       border-left: 4px solid #00aaff;
       padding-left: 24px;
     }
+    /* Conteúdo */
     .content {
-      flex: 1;
+      margin-left: 220px;
       padding: 40px;
       animation: fadeIn 0.5s ease;
-      transition: color 0.5s ease;
     }
-    .hidden {
-      display: none;
-    }
-    h1 {
-      color: #00aaff;
-      transition: color 0.5s ease;
-    }
+    .hidden { display: none; }
+    h1 { color: #00aaff; }
     button {
       padding: 12px 24px;
       background: #00aaff;
@@ -78,10 +114,7 @@
       background: #0077cc;
       transform: scale(1.05);
     }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
     .footer-note {
       position: fixed;
       bottom: 10px;
@@ -89,32 +122,65 @@
       font-size: 12px;
       color: #888;
       font-style: italic;
-      transition: color 0.5s ease;
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
+  <!-- Splash screen -->
+  <div id="splash">
+    <h1>Antiina</h1>
+    <div id="typing"></div>
+    <button onclick="enterSite()">Va!</button>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar hidden" id="sidebar">
     <h2>Antiina</h2>
     <a href="#" onclick="showPage('home')"><i class="fa fa-home"></i> Home</a>
     <a href="#" onclick="showPage('webtvs')"><i class="fa fa-tv"></i> WebTVS</a>
   </div>
-  <div class="content">
+
+  <!-- Conteúdo -->
+  <div class="content hidden" id="mainContent">
     <div id="home">
       <h1>🏠 Bem-vindo ao Antiina</h1>
-      <p>Whoops! Não tem nada aqui.. Podes ver mais coisas no SideBar!.</p>
+      <p>Explore as opções no menu lateral para acessar conteúdos exclusivos.</p>
     </div>
     <div id="webtvs" class="hidden">
       <h1>📺 NickOnline</h1>
-      <p>Assista ao conteúdo disponível no OwnCast:</p>
+      <p>Assista ao conteúdo disponível:</p>
       <button onclick="window.open('https://x1co.com.br:8443/', '_blank')">Ver</button>
     </div>
   </div>
-  <div class="footer-note">
-    Placeholder de site 1.0. Pode mudar. Discobak Corporation CO.
+
+  <div class="footer-note hidden" id="footerNote">
+    Placeholder de site 1.0. Pode mudar tudinho
   </div>
 
   <script>
+    // Efeito de digitação
+    const text = "The antenna that no one's ever seen";
+    let i = 0;
+    function typeEffect() {
+      if (i < text.length) {
+        document.getElementById("typing").textContent += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 100);
+      }
+    }
+    typeEffect();
+
+    // Entrar no site
+    function enterSite() {
+      document.getElementById("splash").style.opacity = "0";
+      setTimeout(() => {
+        document.getElementById("splash").style.display = "none";
+        document.getElementById("sidebar").classList.remove("hidden");
+        document.getElementById("mainContent").classList.remove("hidden");
+        document.getElementById("footerNote").classList.remove("hidden");
+      }, 800);
+    }
+
     function showPage(page) {
       document.getElementById('home').classList.add('hidden');
       document.getElementById('webtvs').classList.add('hidden');
