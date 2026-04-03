@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Antiina</title>
+  <!-- Fonte moderna do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!-- Ícones do Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Roboto', sans-serif;
       display: flex;
       background: #0a0f1c; /* Azul escuro */
       color: #e0e0e0;
+      transition: background 0.5s ease, color 0.5s ease;
     }
     .sidebar {
       width: 220px;
@@ -20,6 +23,7 @@
       height: 100vh;
       padding-top: 30px;
       box-shadow: 2px 0 8px rgba(0,0,0,0.4);
+      transition: background 0.5s ease;
     }
     .sidebar h2 {
       text-align: center;
@@ -27,6 +31,7 @@
       font-size: 22px;
       letter-spacing: 2px;
       color: #00aaff;
+      transition: color 0.5s ease;
     }
     .sidebar a {
       display: flex;
@@ -35,7 +40,7 @@
       color: #fff;
       text-decoration: none;
       font-size: 16px;
-      transition: background 0.3s, color 0.3s;
+      transition: background 0.3s, color 0.3s, padding-left 0.3s;
     }
     .sidebar a i {
       margin-right: 10px;
@@ -44,17 +49,20 @@
       background: #1e3a5f;
       color: #00aaff;
       border-left: 4px solid #00aaff;
+      padding-left: 24px;
     }
     .content {
       flex: 1;
       padding: 40px;
       animation: fadeIn 0.5s ease;
+      transition: color 0.5s ease;
     }
     .hidden {
       display: none;
     }
     h1 {
       color: #00aaff;
+      transition: color 0.5s ease;
     }
     button {
       padding: 12px 24px;
@@ -64,10 +72,11 @@
       border-radius: 6px;
       cursor: pointer;
       font-size: 16px;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.3s;
     }
     button:hover {
       background: #0077cc;
+      transform: scale(1.05);
     }
     @keyframes fadeIn {
       from {opacity: 0;}
@@ -80,6 +89,7 @@
       font-size: 12px;
       color: #888;
       font-style: italic;
+      transition: color 0.5s ease;
     }
   </style>
 </head>
@@ -92,16 +102,16 @@
   <div class="content">
     <div id="home">
       <h1>🏠 Bem-vindo ao Antiina</h1>
-      <p>Explore as opções no menu lateral para acessar conteúdos exclusivos.</p>
+      <p>Whoops! Não tem nada aqui.. Podes ver mais coisas no SideBar!.</p>
     </div>
     <div id="webtvs" class="hidden">
       <h1>📺 NickOnline</h1>
-      <p>Assista ao conteúdo disponível:</p>
+      <p>Assista ao conteúdo disponível no OwnCast:</p>
       <button onclick="window.open('https://x1co.com.br:8443/', '_blank')">Ver</button>
     </div>
   </div>
   <div class="footer-note">
-    Placeholder de site 1.0. Pode mudar tudinho
+    Placeholder de site 1.0. Pode mudar. Discobak Corporation CO.
   </div>
 
   <script>
