@@ -1,24 +1,90 @@
-<!-- Sidebar -->
-<div class="sidebar hidden" id="sidebar">
-  <h2>Antiina</h2>
-  <a href="#" onclick="showPage('home')"><i class="fa fa-home"></i> Home</a>
-  <a href="#" onclick="showPage('webtvs')"><i class="fa fa-tv"></i> WebTVS</a>
-  <a href="#" onclick="showPage('receptores')"><i class="fa fa-server"></i> Receptores/DVR'S</a>
-</div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Antiina</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    .sidebar {
+      width: 200px;
+      background: #333;
+      color: #fff;
+      height: 100vh;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background: #444;
+    }
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      padding: 10px 20px;
+      background: #0078d7;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005a9e;
+    }
+    .footer-note {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      font-size: 12px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('webtvs')">WebTVS</a>
+    <a href="#" onclick="showPage('receptores')">Receptores/DVR'S</a>
+  </div>
 
-<!-- Conteúdo -->
-<div class="content hidden" id="mainContent">
-  <div id="home">
-    <h1>🏠 Bem-vindo ao Antiina</h1>
-    <p>Explore as opções no menu lateral para acessar conteúdos exclusivos.</p>
+  <div class="content">
+    <div id="home">
+      <h1>Bem-vindo ao Antiina</h1>
+      <p>Escolha uma opção na barra lateral.</p>
+    </div>
+    <div id="webtvs" class="hidden">
+      <h1>NickOnline</h1>
+      <button onclick="window.open('https://x1co.com.br:8443/', '_blank')">Ver</button>
+    </div>
+    <div id="receptores" class="hidden">
+      <h1>Receptores/DVR'S</h1>
+      <p>Whoops! Não tem ainda..</p>
+    </div>
   </div>
-  <div id="webtvs" class="hidden">
-    <h1>📺 NickOnline</h1>
-    <p>Assista ao conteúdo disponível:</p>
-    <button onclick="window.open('https://x1co.com.br:8443/', '_blank')">Ver</button>
+
+  <div class="footer-note">
+    Placeholder de site 1.0. Pode mudar tudinho
   </div>
-  <div id="receptores" class="hidden">
-    <h1>🔧 Receptores/DVR'S</h1>
-    <p>Whoops! Não tem ainda..</p>
-  </div>
-</div>
+
+  <script>
+    function showPage(page) {
+      document.getElementById('home').classList.add('hidden');
+      document.getElementById('webtvs').classList.add('hidden');
+      document.getElementById('receptores').classList.add('hidden');
+      document.getElementById(page).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
