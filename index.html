@@ -1,335 +1,358 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Antiina</title>
-  <!-- Fontes modernas -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', 'Roboto Mono', monospace;
-      background: #0a0f1c;
-      color: #e0e0e0;
-      height: 100vh;
-      overflow: hidden;
-    }
-    /* Splash screen */
-    #splash {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #0a0f1c;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      z-index: 999; transition: opacity 0.8s ease;
-    }
-    #splash h1 { font-size: 52px; color: #00aaff; margin-bottom: 20px; font-weight: 600; }
-    #typing {
-      font-size: 18px; color: #0077cc;
-      margin-bottom: 30px; border-right: 2px solid #0077cc;
-      white-space: nowrap; overflow: hidden;
-    }
-    #splash button {
-      padding: 12px 28px;
-      background: linear-gradient(90deg, #00aaff, #0077cc);
-      color: #fff; border: none; border-radius: 8px;
-      cursor: pointer; font-size: 16px; font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    #splash button:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+<meta charset="UTF-8">
+<title>Antiina</title>
 
-    /* Sidebar */
-    .sidebar {
-      width: 220px; background: linear-gradient(180deg, #0d1b2a, #1b263b);
-      color: #fff; height: 100vh; padding-top: 30px;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.4);
-      position: fixed; left: 0; top: 0;
-    }
-    .sidebar h2 { text-align: center; margin-bottom: 20px; font-size: 22px; letter-spacing: 2px; color: #00aaff; font-weight: 600; }
-    .sidebar a {
-      display: flex; align-items: center; padding: 12px 20px;
-      color: #fff; text-decoration: none; font-size: 16px;
-      transition: background 0.3s, color 0.3s, padding-left 0.3s;
-    }
-    .sidebar a i { margin-right: 10px; }
-    .sidebar a:hover { background: #1e3a5f; color: #00aaff; border-left: 4px solid #00aaff; padding-left: 24px; }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    /* Conteúdo */
-    .content { margin-left: 220px; padding: 40px; animation: fadeIn 0.5s ease; }
-    .hidden { display: none; }
-    h1 { color: #00aaff; font-weight: 600; }
-    button {
-      padding: 12px 24px;
-      background: linear-gradient(90deg, #00aaff, #0077cc);
-      color: #fff; border: none; border-radius: 8px;
-      cursor: pointer; font-size: 16px; font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    button:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+<style>
 
-    /* Inputs modernos */
-    input {
-      padding: 10px; margin: 8px 0;
-      border-radius: 6px; border: 1px solid #1e3a5f;
-      background: #0d1b2a; color: #fff; width: 220px;
-      transition: border 0.3s;
-    }
-    input:focus { border: 1px solid #00aaff; outline: none; }
+body{
+margin:0;
+font-family:'Inter','Roboto Mono',monospace;
+background:#0a0f1c;
+color:#e0e0e0;
+height:100vh;
+overflow:hidden;
+}
 
-    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-    .footer-note { position: fixed; bottom: 10px; right: 15px; font-size: 12px; color: #888; font-style: italic; }
+/* SPLASH */
 
-    /* Banner com efeito hover */
-    .banner {
-      max-width: 100%; border-radius: 12px; margin: 20px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      transition: transform 0.4s ease;
-    }
-    .banner:hover { transform: scale(1.03); }
-  </style>
+#splash{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#0a0f1c;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:999;
+transition:opacity .8s ease;
+}
+
+#splash h1{
+font-size:52px;
+color:#00aaff;
+margin-bottom:20px;
+}
+
+#typing{
+font-size:18px;
+color:#0077cc;
+margin-bottom:30px;
+border-right:2px solid #0077cc;
+white-space:nowrap;
+overflow:hidden;
+}
+
+/* BOTÕES */
+
+button{
+padding:12px 28px;
+background:linear-gradient(90deg,#00aaff,#0077cc);
+color:#fff;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+box-shadow:0 4px 12px rgba(0,0,0,.3);
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:220px;
+background:linear-gradient(180deg,#0d1b2a,#1b263b);
+height:100vh;
+position:fixed;
+left:0;
+top:0;
+padding-top:30px;
+box-shadow:2px 0 8px rgba(0,0,0,.4);
+}
+
+.sidebar h2{
+text-align:center;
+margin-bottom:20px;
+color:#00aaff;
+}
+
+.sidebar a{
+display:flex;
+align-items:center;
+padding:12px 20px;
+color:#fff;
+text-decoration:none;
+transition:.3s;
+}
+
+.sidebar a i{
+margin-right:10px;
+}
+
+.sidebar a:hover{
+background:#1e3a5f;
+color:#00aaff;
+padding-left:24px;
+}
+
+/* CONTENT */
+
+.content{
+margin-left:220px;
+padding:40px;
+animation:fadeIn .5s ease;
+}
+
+.hidden{
+display:none;
+}
+
+.banner{
+max-width:100%;
+border-radius:12px;
+margin:20px 0;
+}
+
+input{
+padding:10px;
+margin:8px 0;
+border-radius:6px;
+border:1px solid #1e3a5f;
+background:#0d1b2a;
+color:#fff;
+width:220px;
+}
+
+.footer-note{
+position:fixed;
+bottom:10px;
+right:15px;
+font-size:12px;
+color:#888;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+</style>
 </head>
+
 <body>
-  <!-- Splash screen -->
-  <div id="splash">
-    <h1>Antiina</h1>
-    <div id="typing"></div>
-    <button onclick="enterSite()">Va!</button>
-  </div>
 
-  <!-- Sidebar -->
-  <div class="sidebar hidden" id="sidebar">
-    <h2>Antiina</h2>
-    <a href="#" onclick="showPage('home')"><i class="fa fa-home"></i> Home</a>
-    <a href="#" onclick="showPage('webtvs')"><i class="fa fa-tv"></i> WebTVS</a>
-    <a href="#" onclick="showPage('receptores')"><i class="fa fa-server"></i> Receptores/DVR'S</a>
-    <a href="#" onclick="showPage('admin')"><i class="fa fa-user-shield"></i> Admin</a>
-  </div>
+<!-- SPLASH -->
 
-  <!-- Conteúdo -->
-  <div class="content hidden" id="mainContent">
-    <div id="home">
-      <h1>🏠 Bem-vindo ao Antiina</h1>
-      <p>Explore as opções no menu lateral para acessar conteúdos exclusivos.</p>
-    </div>
-    <div id="webtvs" class="hidden">
-      <h1>📺 NickOnline</h1>
-      <img src="NICKONLINE_BANNER.png" alt="NickOnline Banner" class="banner">
-      <p>Assista ao conteúdo disponível:</p>
-      <button onclick="window.open('https://x1co.com.br:8443/', '_blank')">Ver</button>
-    </div>
-    <div id="receptores" class="hidden">
-      <h1>🔧 Receptores/DVR'S</h1>
-      <p>Whoops! Não tem ainda..</p>
-    </div>
-    <div id="admin" class="hidden">
-      <h1>🔐 Área Admin</h1>
-      <p>Digite usuário e senha:</p>
-      <input type="text" id="adminUser" placeholder="Usuário"><br>
-      <input type="password" id="adminPass" placeholder="Senha"><br>
-      <button onclick="checkLogin()">Entrar</button>
-      <div id="adminContent" class="hidden">
-        <h2>⚙️ Manutenção</h2>
-        <p>Bem-vindo à seção de administração!</p>
-      </div>
-    </div>
-  </div>
+<div id="splash">
 
-  <div class="footer-note hidden" id="footerNote">
-    Placeholder de site 1.0. Pode mudar tudinho
-  </div>
+<h1>Antiina</h1>
 
-  <script>
-    // Texto estilo máquina de escrever
-    const text = "The antenna that no one's ever seen";
-    let i = 0;
-    function typeEffect() {
-      if (i < text.length) {
-        document.getElementById("typing").textContent += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 100);
-      }
-    }
-    window.addEventListener("DOMContentLoaded", typeEffect);
+<div id="typing"></div>
 
-    // Entrar no site
-    function enterSite() {
-      const splash = document.getElementById("splash");
-      splash.style.opacity = "0";
-      setTimeout(() => {
-        splash.style.display = "none";
-        document.getElementById("sidebar").classList.remove("hidden");
-        document.getElementById("mainContent").classList.remove("hidden");
-        document.getElementById("footerNote").classList.remove("hidden");
-     Aqui está o **código completo e finalizado**, já com o efeito de digitação estilo máquina de escrever funcionando, o botão **Va!** que libera o site, a sidebar moderna, o banner NickOnline com hover, e a seção Admin com login escondido via Base64:
+<button onclick="enterSite()">Va!</button>
 
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Antiina</title>
-  <!-- Fontes modernas -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', 'Roboto Mono', monospace;
-      background: #0a0f1c;
-      color: #e0e0e0;
-      height: 100vh;
-      overflow: hidden;
-    }
-    /* Splash screen */
-    #splash {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #0a0f1c;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      z-index: 999; transition: opacity 0.8s ease;
-    }
-    #splash h1 { font-size: 52px; color: #00aaff; margin-bottom: 20px; font-weight: 600; }
-    #typing {
-      font-size: 18px; color: #0077cc;
-      margin-bottom: 30px; border-right: 2px solid #0077cc;
-      white-space: nowrap; overflow: hidden;
-    }
-    #splash button {
-      padding: 12px 28px;
-      background: linear-gradient(90deg, #00aaff, #0077cc);
-      color: #fff; border: none; border-radius: 8px;
-      cursor: pointer; font-size: 16px; font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    #splash button:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+</div>
 
-    /* Sidebar */
-    .sidebar {
-      width: 220px; background: linear-gradient(180deg, #0d1b2a, #1b263b);
-      color: #fff; height: 100vh; padding-top: 30px;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.4);
-      position: fixed; left: 0; top: 0;
-    }
-    .sidebar h2 { text-align: center; margin-bottom: 20px; font-size: 22px; letter-spacing: 2px; color: #00aaff; font-weight: 600; }
-    .sidebar a {
-      display: flex; align-items: center; padding: 12px 20px;
-      color: #fff; text-decoration: none; font-size: 16px;
-      transition: background 0.3s, color 0.3s, padding-left 0.3s;
-    }
-    .sidebar a i { margin-right: 10px; }
-    .sidebar a:hover { background: #1e3a5f; color: #00aaff; border-left: 4px solid #00aaff; padding-left: 24px; }
 
-    /* Conteúdo */
-    .content { margin-left: 220px; padding: 40px; animation: fadeIn 0.5s ease; }
-    .hidden { display: none; }
-    h1 { color: #00aaff; font-weight: 600; }
-    button {
-      padding: 12px 24px;
-      background: linear-gradient(90deg, #00aaff, #0077cc);
-      color: #fff; border: none; border-radius: 8px;
-      cursor: pointer; font-size: 16px; font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    button:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+<!-- SIDEBAR -->
 
-    /* Inputs modernos */
-    input {
-      padding: 10px; margin: 8px 0;
-      border-radius: 6px; border: 1px solid #1e3a5f;
-      background: #0d1b2a; color: #fff; width: 220px;
-      transition: border 0.3s;
-    }
-    input:focus { border: 1px solid #00aaff; outline: none; }
+<div class="sidebar hidden" id="sidebar">
 
-    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-    .footer-note { position: fixed; bottom: 10px; right: 15px; font-size: 12px; color: #888; font-style: italic; }
+<h2>Antiina</h2>
 
-    /* Banner com efeito hover */
-    .banner {
-      max-width: 100%; border-radius: 12px; margin: 20px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      transition: transform 0.4s ease;
-    }
-    .banner:hover { transform: scale(1.03); }
-  </style>
-</head>
-<body>
-  <!-- Splash screen -->
-  <div id="splash">
-    <h1>Antiina</h1>
-    <div id="typing"></div>
-    <button onclick="enterSite()">Va!</button>
-  </div>
+<a href="#" onclick="showPage('home')">
+<i class="fa fa-home"></i> Home
+</a>
 
-  <!-- Sidebar -->
-  <div class="sidebar hidden" id="sidebar">
-    <h2>Antiina</h2>
-    <a href="#" onclick="showPage('home')"><i class="fa fa-home"></i> Home</a>
-    <a href="#" onclick="showPage('webtvs')"><i class="fa fa-tv"></i> WebTVS</a>
-    <a href="#" onclick="showPage('receptores')"><i class="fa fa-server"></i> Receptores/DVR'S</a>
-    <a href="#" onclick="showPage('admin')"><i class="fa fa-user-shield"></i> Admin</a>
-  </div>
+<a href="#" onclick="showPage('webtvs')">
+<i class="fa fa-tv"></i> WebTVS
+</a>
 
-  <!-- Conteúdo -->
-  <div class="content hidden" id="mainContent">
-    <div id="home">
-      <h1>🏠 Bem-vindo ao Antiina</h1>
-      <p>Explore as opções no menu lateral para acessar conteúdos exclusivos.</p>
-    </div>
-    <div id="webtvs" class="hidden">
-      <h1>📺 NickOnline</h1>
-      <img src="NICKONLINE_BANNER.png" alt="NickOnline Banner" class="banner">
-      <p>Assista ao conteúdo disponível:</p>
-      <button onclick="window.open('https://x1co.com.br:8443/', '_blank')">Ver</button>
-    </div>
-    <div id="receptores" class="hidden">
-      <h1>🔧 Receptores/DVR'S</h1>
-      <p>Whoops! Não tem ainda..</p>
-    </div>
-    <div id="admin" class="hidden">
-      <h1>🔐 Área Admin</h1>
-      <p>Digite usuário e senha:</p>
-      <input type="text" id="adminUser" placeholder="Usuário"><br>
-      <input type="password" id="adminPass" placeholder="Senha"><br>
-      <button onclick="checkLogin()">Entrar</button>
-      <div id="adminContent" class="hidden">
-        <h2>⚙️ Manutenção</h2>
-        <p>Bem-vindo à seção de administração!</p>
-      </div>
-    </div>
-  </div>
+<a href="#" onclick="showPage('receptores')">
+<i class="fa fa-server"></i> Receptores/DVR'S
+</a>
 
-  <div class="footer-note hidden" id="footerNote">
-    Placeholder de site 1.0. Pode mudar tudinho
-  </div>
+<a href="#" onclick="showPage('admin')">
+<i class="fa fa-user-shield"></i> Admin
+</a>
 
-  <script>
-    // Texto estilo máquina de escrever
-    const text = "The antenna that no one's ever seen";
-    let i = 0;
-    function typeEffect() {
-      if (i < text.length) {
-        document.getElementById("typing").textContent += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 100);
-      }
-    }
-    window.addEventListener("DOMContentLoaded", typeEffect);
+</div>
 
-    // Entrar no site
-    function enterSite() {
-      const splash = document.getElementById("splash");
-      splash.style.opacity = "0";
-      setTimeout(() => {
-        splash.style.display = "none";
-        document.getElementById("sidebar").classList.remove("hidden");
-        document.getElementById("mainContent").classList.remove("hidden");
-        document.getElementById("footerNote").classList.remove("
+
+<!-- CONTEÚDO -->
+
+<div class="content hidden" id="mainContent">
+
+
+<div id="home">
+
+<h1>🏠 Bem-vindo ao Antiina</h1>
+
+<p>Explore as opções no menu lateral.</p>
+
+</div>
+
+
+<div id="webtvs" class="hidden">
+
+<h1>📺 NickOnline</h1>
+
+<img src="NICKONLINE_BANNER.png" class="banner">
+
+<button onclick="window.open('https://x1co.com.br:8443/','_blank')">
+
+Ver
+
+</button>
+
+</div>
+
+
+<div id="receptores" class="hidden">
+
+<h1>🔧 Receptores/DVR'S</h1>
+
+<p>Whoops! Não tem ainda..</p>
+
+</div>
+
+
+<div id="admin" class="hidden">
+
+<h1>🔐 Área Admin</h1>
+
+<input id="adminUser" placeholder="Usuário">
+
+<br>
+
+<input type="password" id="adminPass" placeholder="Senha">
+
+<br>
+
+<button onclick="checkLogin()">Entrar</button>
+
+
+<div id="adminContent" class="hidden">
+
+<h2>⚙️ Manutenção</h2>
+
+<p>Bem-vindo admin.</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-note hidden" id="footerNote">
+
+Placeholder de site 1.0
+
+</div>
+
+
+<script>
+
+
+const text="The antenna that no one's ever seen";
+
+let i=0;
+
+
+function typeEffect(){
+
+if(i<text.length){
+
+document.getElementById("typing").textContent+=text.charAt(i);
+
+i++;
+
+setTimeout(typeEffect,100);
+
+}
+
+}
+
+
+window.addEventListener("DOMContentLoaded",typeEffect);
+
+
+
+function enterSite(){
+
+const splash=document.getElementById("splash");
+
+splash.style.opacity="0";
+
+setTimeout(()=>{
+
+splash.style.display="none";
+
+sidebar.classList.remove("hidden");
+
+mainContent.classList.remove("hidden");
+
+footerNote.classList.remove("hidden");
+
+},800);
+
+}
+
+
+
+function showPage(page){
+
+["home","webtvs","receptores","admin"]
+
+.forEach(id=>{
+
+document.getElementById(id).classList.add("hidden");
+
+});
+
+
+document.getElementById(page).classList.remove("hidden");
+
+}
+
+
+
+function checkLogin(){
+
+const user=document.getElementById("adminUser").value;
+
+const pass=document.getElementById("adminPass").value;
+
+
+if(user==="admin" && pass==="admin"){
+
+adminContent.classList.remove("hidden");
+
+alert("Login OK");
+
+}else{
+
+alert("Senha incorreta");
+
+}
+
+}
+
+
+</script>
+
+</body>
+</html>
