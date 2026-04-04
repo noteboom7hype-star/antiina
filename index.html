@@ -153,14 +153,18 @@
         setTimeout(typeEffect, 100);
       }
     }
-    window.addEventListener("load", typeEffect);
+    window.addEventListener("DOMContentLoaded", typeEffect);
 
     // Entrar no site
     function enterSite() {
-      document.getElementById("splash").style.opacity = "0";
+      const splash = document.getElementById("splash");
+      splash.style.opacity = "0";
       setTimeout(() => {
-        document.getElementById("splash").style.display = "none";
-        documentAqui está o **HTML completo modernizado** com todos os ajustes aplicados: tipografia mais atual, botões com gradiente e sombra, inputs elegantes, banner com efeito hover e transições suaves. Mantém o estilo escuro/azul que você pediu, mas com um ar mais sofisticado:
+        splash.style.display = "none";
+        document.getElementById("sidebar").classList.remove("hidden");
+        document.getElementById("mainContent").classList.remove("hidden");
+        document.getElementById("footerNote").classList.remove("hidden");
+     Aqui está o **código completo e finalizado**, já com o efeito de digitação estilo máquina de escrever funcionando, o botão **Va!** que libera o site, a sidebar moderna, o banner NickOnline com hover, e a seção Admin com login escondido via Base64:
 
 ```html
 <!DOCTYPE html>
@@ -318,13 +322,14 @@
         setTimeout(typeEffect, 100);
       }
     }
-    window.addEventListener("load", typeEffect);
+    window.addEventListener("DOMContentLoaded", typeEffect);
 
     // Entrar no site
     function enterSite() {
-      document.getElementById("splash").style.opacity = "0";
+      const splash = document.getElementById("splash");
+      splash.style.opacity = "0";
       setTimeout(() => {
-        document.getElementById("splash").style.display = "none";
+        splash.style.display = "none";
         document.getElementById("sidebar").classList.remove("hidden");
         document.getElementById("mainContent").classList.remove("hidden");
-        document.getElementById("
+        document.getElementById("footerNote").classList.remove("
