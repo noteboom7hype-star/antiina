@@ -6,6 +6,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 
 body{
@@ -80,7 +83,9 @@ color:#00aaff;
 /* LINKS SIDEBAR */
 
 .sidebar a{
-display:block;
+display:flex;
+align-items:center;
+gap:12px;
 padding:14px 25px;
 text-decoration:none;
 color:white;
@@ -122,6 +127,12 @@ padding-left:32px;
 
 .sidebar a.active::before{
 width:4px;
+}
+
+/* ícones mudam cor ativo */
+
+.sidebar a.active i{
+color:#00aaff;
 }
 
 /* CONTENT */
@@ -203,13 +214,21 @@ to{opacity:1;}
 
 <h2>Antiina</h2>
 
-<a onclick="page('home',this)" class="active">🏠 Home</a>
+<a onclick="page('home',this)" class="active">
+<i class="fa-solid fa-house"></i> Home
+</a>
 
-<a onclick="page('web',this)">📺 WebTV</a>
+<a onclick="page('web',this)">
+<i class="fa-solid fa-tv"></i> WebTV
+</a>
 
-<a onclick="page('rec',this)">📡 Receptores</a>
+<a onclick="page('rec',this)">
+<i class="fa-solid fa-satellite-dish"></i> Receptores
+</a>
 
-<a onclick="page('admin',this)">🔐 Admin</a>
+<a onclick="page('admin',this)">
+<i class="fa-solid fa-shield-halved"></i> Admin
+</a>
 
 </div>
 
@@ -298,7 +317,7 @@ Abrir player
 
 <footer>
 
-Antiina v2.1
+Antiina v2.2
 
 </footer>
 
