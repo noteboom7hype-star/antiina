@@ -165,7 +165,6 @@
     </div>
     <div id="webtvs" class="hidden">
       <h1>📺 NickOnline</h1>
-      <!-- Banner NickOnline -->
       <img src="NICKONLINE_BANNER.png" alt="NickOnline Banner" class="banner">
       <p>Assista ao conteúdo disponível:</p>
       <button onclick="window.open('https://x1co.com.br:8443/', '_blank')">Ver</button>
@@ -192,7 +191,7 @@
   </div>
 
   <script>
-    // Efeito de digitação
+    // Texto estilo máquina de escrever
     const text = "The antenna that no one's ever seen";
     let i = 0;
     function typeEffect() {
@@ -202,7 +201,7 @@
         setTimeout(typeEffect, 100);
       }
     }
-    typeEffect();
+    window.onload = typeEffect;
 
     // Entrar no site
     function enterSite() {
@@ -223,12 +222,12 @@
       document.getElementById(page).classList.remove('hidden');
     }
 
-    function checkLogin() {
-      const user = document.getElementById("adminUser").value;
-      const pass = document.getElementById("adminPass").value;
-      if (user === "root" && pass === "davixboxadmin") {
-        document.getElementById("adminContent").classList.remove("hidden");
-      }Aqui está o código completo atualizado, mantendo o estilo moderno que você já tem e adicionando a opção **Admin** na sidebar. Essa seção pede usuário e senha, e só libera a área de manutenção se o login for correto (`root` / `davixboxadmin`):
+    function checkLogin()Você tem razão — no último código o efeito de digitação não estava rodando corretamente e o botão **Va!** não liberava o site. Aqui vai o **código completo corrigido**, mantendo o estilo moderno que você pediu:
+
+- Splash screen com efeito de digitação estilo máquina de escrever.  
+- Botão **Va!** que realmente libera o site.  
+- Sidebar com Home, WebTVS, Receptores/DVR’S e Admin.  
+- Seção Admin pedindo usuário e senha (`root` / `davixboxadmin`).  
 
 ```html
 <!DOCTYPE html>
@@ -236,9 +235,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Antiina</title>
-  <!-- Fonte moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
@@ -251,126 +248,54 @@
     }
     /* Splash screen */
     #splash {
-      position: fixed;
-      top: 0; left: 0;
+      position: fixed; top: 0; left: 0;
       width: 100%; height: 100%;
       background: #0a0f1c;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      transition: opacity 0.8s ease;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      z-index: 999; transition: opacity 0.8s ease;
     }
-    #splash h1 {
-      font-size: 48px;
-      color: #00aaff;
-      margin-bottom: 20px;
-    }
+    #splash h1 { font-size: 48px; color: #00aaff; margin-bottom: 20px; }
     #typing {
-      font-size: 18px;
-      color: #0077cc;
-      margin-bottom: 30px;
-      border-right: 2px solid #0077cc;
-      white-space: nowrap;
-      overflow: hidden;
+      font-size: 18px; color: #0077cc;
+      margin-bottom: 30px; border-right: 2px solid #0077cc;
+      white-space: nowrap; overflow: hidden;
     }
     #splash button {
-      padding: 12px 24px;
-      background: #00aaff;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s, transform 0.3s;
+      padding: 12px 24px; background: #00aaff; color: #fff;
+      border: none; border-radius: 6px; cursor: pointer;
+      font-size: 16px; transition: background 0.3s, transform 0.3s;
     }
-    #splash button:hover {
-      background: #0077cc;
-      transform: scale(1.05);
-    }
+    #splash button:hover { background: #0077cc; transform: scale(1.05); }
     /* Sidebar */
     .sidebar {
-      width: 220px;
-      background: linear-gradient(180deg, #0d1b2a, #1b263b);
-      color: #fff;
-      height: 100vh;
-      padding-top: 30px;
+      width: 220px; background: linear-gradient(180deg, #0d1b2a, #1b263b);
+      color: #fff; height: 100vh; padding-top: 30px;
       box-shadow: 2px 0 8px rgba(0,0,0,0.4);
-      position: fixed;
-      left: 0; top: 0;
+      position: fixed; left: 0; top: 0;
     }
-    .sidebar h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 22px;
-      letter-spacing: 2px;
-      color: #00aaff;
-    }
+    .sidebar h2 { text-align: center; margin-bottom: 20px; font-size: 22px; letter-spacing: 2px; color: #00aaff; }
     .sidebar a {
-      display: flex;
-      align-items: center;
-      padding: 12px 20px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 16px;
+      display: flex; align-items: center; padding: 12px 20px;
+      color: #fff; text-decoration: none; font-size: 16px;
       transition: background 0.3s, color 0.3s, padding-left 0.3s;
     }
-    .sidebar a i {
-      margin-right: 10px;
-    }
-    .sidebar a:hover {
-      background: #1e3a5f;
-      color: #00aaff;
-      border-left: 4px solid #00aaff;
-      padding-left: 24px;
-    }
+    .sidebar a i { margin-right: 10px; }
+    .sidebar a:hover { background: #1e3a5f; color: #00aaff; border-left: 4px solid #00aaff; padding-left: 24px; }
     /* Conteúdo */
-    .content {
-      margin-left: 220px;
-      padding: 40px;
-      animation: fadeIn 0.5s ease;
-    }
+    .content { margin-left: 220px; padding: 40px; animation: fadeIn 0.5s ease; }
     .hidden { display: none; }
     h1 { color: #00aaff; }
     button {
-      padding: 12px 24px;
-      background: #00aaff;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s, transform 0.3s;
+      padding: 12px 24px; background: #00aaff; color: #fff;
+      border: none; border-radius: 6px; cursor: pointer;
+      font-size: 16px; transition: background 0.3s, transform 0.3s;
     }
-    button:hover {
-      background: #0077cc;
-      transform: scale(1.05);
-    }
-    input {
-      padding: 8px;
-      margin: 5px 0;
-      border-radius: 4px;
-      border: none;
-      width: 200px;
-    }
+    button:hover { background: #0077cc; transform: scale(1.05); }
+    input { padding: 8px; margin: 5px 0; border-radius: 4px; border: none; width: 200px; }
     @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-    .footer-note {
-      position: fixed;
-      bottom: 10px;
-      right: 15px;
-      font-size: 12px;
-      color: #888;
-      font-style: italic;
-    }
-    /* Banner */
-    .banner {
-      max-width: 100%;
-      border-radius: 8px;
-      margin: 20px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      animation: fadeIn 1s ease;
-    }
+    .footer-note { position: fixed; bottom: 10px; right: 15px; font-size: 12px; color: #888; font-style: italic; }
+    .banner { max-width: 100%; border-radius: 8px; margin: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.4); animation: fadeIn 1s ease; }
   </style>
 </head>
 <body>
@@ -398,7 +323,6 @@
     </div>
     <div id="webtvs" class="hidden">
       <h1>📺 NickOnline</h1>
-      <!-- Banner NickOnline -->
       <img src="NICKONLINE_BANNER.png" alt="NickOnline Banner" class="banner">
       <p>Assista ao conteúdo disponível:</p>
       <button onclick="window.open('https://x1co.com.br:8443/', '_blank')">Ver</button>
@@ -425,7 +349,7 @@
   </div>
 
   <script>
-    // Efeito de digitação
+    // Texto estilo máquina de escrever
     const text = "The antenna that no one's ever seen";
     let i = 0;
     function typeEffect() {
@@ -435,7 +359,7 @@
         setTimeout(typeEffect, 100);
       }
     }
-    typeEffect();
+    window.onload = typeEffect;
 
     // Entrar no site
     function enterSite() {
@@ -461,4 +385,10 @@
       const pass = document.getElementById("adminPass").value;
       if (user === "root" && pass === "davixboxadmin") {
         document.getElementById("adminContent").classList.remove("hidden");
-      } else
+      } else {
+        alert("Usuário ou senha incorretos!");
+      }
+    }
+  </script>
+</body>
+</html>
