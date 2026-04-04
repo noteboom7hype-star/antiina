@@ -4,17 +4,15 @@
 <meta charset="UTF-8">
 <title>Antiina</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 margin:0;
-font-family:'Inter','Roboto Mono',monospace;
+font-family:Inter;
 background:#0a0f1c;
-color:#e0e0e0;
-height:100vh;
+color:white;
 overflow:hidden;
 }
 
@@ -22,8 +20,6 @@ overflow:hidden;
 
 #splash{
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
 background:#0a0f1c;
@@ -32,118 +28,119 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 z-index:999;
-transition:opacity .8s ease;
+transition:.7s;
 }
 
-#splash h1{
-font-size:52px;
-color:#00aaff;
-margin-bottom:20px;
+.logo{
+font-size:60px;
+font-weight:700;
+background:linear-gradient(90deg,#00aaff,#66d9ff);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-#typing{
-font-size:18px;
-color:#0077cc;
-margin-bottom:30px;
-border-right:2px solid #0077cc;
-white-space:nowrap;
-overflow:hidden;
+.typing{
+margin:20px;
+opacity:.8;
 }
 
-/* BOTÕES */
+/* BOTÃO */
 
 button{
-padding:12px 28px;
-background:linear-gradient(90deg,#00aaff,#0077cc);
-color:#fff;
+background:linear-gradient(90deg,#00aaff,#0077ff);
 border:none;
-border-radius:8px;
+padding:12px 26px;
+border-radius:10px;
+color:white;
 cursor:pointer;
 font-size:16px;
-box-shadow:0 4px 12px rgba(0,0,0,.3);
-transition:.3s;
+transition:.25s;
 }
 
 button:hover{
-transform:translateY(-2px);
+transform:scale(1.05);
 }
 
 /* SIDEBAR */
 
 .sidebar{
-width:220px;
-background:linear-gradient(180deg,#0d1b2a,#1b263b);
-height:100vh;
 position:fixed;
-left:0;
-top:0;
+width:230px;
+height:100vh;
+background:#0d1b2a;
 padding-top:30px;
-box-shadow:2px 0 8px rgba(0,0,0,.4);
+box-shadow:3px 0 15px rgba(0,0,0,.4);
 }
 
 .sidebar h2{
 text-align:center;
-margin-bottom:20px;
 color:#00aaff;
 }
 
 .sidebar a{
-display:flex;
-align-items:center;
-padding:12px 20px;
-color:#fff;
+display:block;
+padding:14px 25px;
 text-decoration:none;
-transition:.3s;
-}
-
-.sidebar a i{
-margin-right:10px;
+color:white;
+transition:.25s;
 }
 
 .sidebar a:hover{
-background:#1e3a5f;
-color:#00aaff;
-padding-left:24px;
+background:#162c47;
 }
 
 /* CONTENT */
 
 .content{
-margin-left:220px;
-padding:40px;
-animation:fadeIn .5s ease;
+margin-left:230px;
+padding:50px;
+animation:fade .4s ease;
 }
 
 .hidden{
 display:none;
 }
 
-.banner{
-max-width:100%;
-border-radius:12px;
-margin:20px 0;
+/* CARD */
+
+.card{
+background:#111f36;
+padding:30px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+margin-bottom:25px;
+transition:.3s;
 }
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* INPUT */
 
 input{
-padding:10px;
-margin:8px 0;
-border-radius:6px;
-border:1px solid #1e3a5f;
+padding:12px;
+margin:10px;
 background:#0d1b2a;
-color:#fff;
-width:220px;
+border:1px solid #24406c;
+border-radius:8px;
+color:white;
 }
 
-.footer-note{
+/* FOOTER */
+
+footer{
 position:fixed;
 bottom:10px;
 right:15px;
 font-size:12px;
-color:#888;
+opacity:.5;
 }
 
-@keyframes fadeIn{
-from{opacity:0;}
+/* ANIMAÇÃO */
+
+@keyframes fade{
+from{opacity:0;transform:translateY(10px);}
 to{opacity:1;}
 }
 
@@ -156,98 +153,105 @@ to{opacity:1;}
 
 <div id="splash">
 
-<h1>Antiina</h1>
+<div class="logo">Antiina</div>
 
-<div id="typing"></div>
+<div class="typing" id="typing"></div>
 
-<button onclick="enterSite()">Va!</button>
+<button onclick="enter()">Entrar</button>
 
 </div>
 
 
 <!-- SIDEBAR -->
 
-<div class="sidebar hidden" id="sidebar">
+<div id="sidebar" class="sidebar hidden">
 
 <h2>Antiina</h2>
 
-<a href="#" onclick="showPage('home')">
-<i class="fa fa-home"></i> Home
-</a>
+<a onclick="page('home')">🏠 Home</a>
 
-<a href="#" onclick="showPage('webtvs')">
-<i class="fa fa-tv"></i> WebTVS
-</a>
+<a onclick="page('web')">📺 WebTV</a>
 
-<a href="#" onclick="showPage('receptores')">
-<i class="fa fa-server"></i> Receptores/DVR'S
-</a>
+<a onclick="page('rec')">📡 Receptores</a>
 
-<a href="#" onclick="showPage('admin')">
-<i class="fa fa-user-shield"></i> Admin
-</a>
+<a onclick="page('admin')">🔐 Admin</a>
 
 </div>
 
 
-<!-- CONTEÚDO -->
+<!-- CONTENT -->
 
-<div class="content hidden" id="mainContent">
+<div id="content" class="content hidden">
 
 
 <div id="home">
 
-<h1>🏠 Bem-vindo ao Antiina</h1>
+<div class="card">
 
-<p>Explore as opções no menu lateral.</p>
+<h1>Bem-vindo</h1>
+
+<p>Painel Antiina carregado com sucesso.</p>
+
+</div>
 
 </div>
 
 
-<div id="webtvs" class="hidden">
+<div id="web" class="hidden">
 
-<h1>📺 NickOnline</h1>
+<div class="card">
 
-<img src="NICKONLINE_BANNER.png" class="banner">
+<h1>NickOnline</h1>
 
-<button onclick="window.open('https://x1co.com.br:8443/','_blank')">
+<button onclick="window.open('https://x1co.com.br:8443/')">
 
-Ver
+Abrir player
 
 </button>
 
 </div>
 
+</div>
 
-<div id="receptores" class="hidden">
 
-<h1>🔧 Receptores/DVR'S</h1>
+<div id="rec" class="hidden">
 
-<p>Whoops! Não tem ainda..</p>
+<div class="card">
+
+<h1>Receptores</h1>
+
+<p>Em breve...</p>
+
+</div>
 
 </div>
 
 
 <div id="admin" class="hidden">
 
-<h1>🔐 Área Admin</h1>
+<div class="card">
 
-<input id="adminUser" placeholder="Usuário">
+<h1>Login Admin</h1>
+
+<input id="user" placeholder="Usuário">
+
+<input id="pass" type="password" placeholder="Senha">
 
 <br>
 
-<input type="password" id="adminPass" placeholder="Senha">
+<button onclick="login()">Entrar</button>
 
-<br>
+<button onclick="logout()">Logout</button>
 
-<button onclick="checkLogin()">Entrar</button>
+<div id="painel" class="hidden">
 
+<hr>
 
-<div id="adminContent" class="hidden">
+<h2>Painel admin ativo</h2>
 
-<h2>⚙️ Manutenção</h2>
+<p>Status: Online</p>
 
-<p>Bem-vindo admin.</p>
+</div>
 
 </div>
 
@@ -257,45 +261,40 @@ Ver
 </div>
 
 
-<div class="footer-note hidden" id="footerNote">
+<footer>
 
-Placeholder de site 1.0
+Antiina v2.0
 
-</div>
+</footer>
 
 
 <script>
 
-
-const text="The antenna that no one's ever seen";
+let texto="The antenna that no one's ever seen";
 
 let i=0;
 
+function digitar(){
 
-function typeEffect(){
+if(i<texto.length){
 
-if(i<text.length){
-
-document.getElementById("typing").textContent+=text.charAt(i);
+typing.textContent+=texto[i];
 
 i++;
 
-setTimeout(typeEffect,100);
+setTimeout(digitar,60);
 
 }
 
 }
 
-
-window.addEventListener("DOMContentLoaded",typeEffect);
-
+window.onload=digitar;
 
 
-function enterSite(){
 
-const splash=document.getElementById("splash");
+function enter(){
 
-splash.style.opacity="0";
+splash.style.opacity=0;
 
 setTimeout(()=>{
 
@@ -303,54 +302,57 @@ splash.style.display="none";
 
 sidebar.classList.remove("hidden");
 
-mainContent.classList.remove("hidden");
+content.classList.remove("hidden");
 
-footerNote.classList.remove("hidden");
-
-},800);
+},600);
 
 }
 
 
 
-function showPage(page){
+function page(p){
 
-["home","webtvs","receptores","admin"]
+["home","web","rec","admin"]
 
-.forEach(id=>{
+.forEach(x=>document.getElementById(x).classList.add("hidden"));
 
-document.getElementById(id).classList.add("hidden");
-
-});
-
-
-document.getElementById(page).classList.remove("hidden");
+document.getElementById(p).classList.remove("hidden");
 
 }
 
 
 
-function checkLogin(){
+function login(){
 
-const user=document.getElementById("adminUser").value;
+if(user.value=="admin" && pass.value=="admin"){
 
-const pass=document.getElementById("adminPass").value;
+localStorage.admin=true;
 
-
-if(user==="admin" && pass==="admin"){
-
-adminContent.classList.remove("hidden");
+painel.classList.remove("hidden");
 
 alert("Login OK");
 
-}else{
-
-alert("Senha incorreta");
-
 }
 
 }
 
+
+
+function logout(){
+
+localStorage.removeItem("admin");
+
+painel.classList.add("hidden");
+
+}
+
+
+
+if(localStorage.admin){
+
+painel.classList.remove("hidden");
+
+}
 
 </script>
 
