@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Antiina</title>
+<title>Pluvie</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -14,7 +14,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 body{
 margin:0;
 font-family:Inter;
-background:#0a0f1c;
+background:#0b0616;
 color:white;
 overflow:hidden;
 }
@@ -25,7 +25,7 @@ overflow:hidden;
 position:fixed;
 width:100%;
 height:100%;
-background:#0a0f1c;
+background:#0b0616;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -37,7 +37,7 @@ transition:.7s;
 .logo{
 font-size:60px;
 font-weight:700;
-background:linear-gradient(90deg,#00aaff,#66d9ff);
+background:linear-gradient(90deg,#a855f7,#7c3aed);
 -webkit-background-clip:text;
 color:transparent;
 }
@@ -50,7 +50,7 @@ opacity:.8;
 /* BOTÃO */
 
 button{
-background:linear-gradient(90deg,#00aaff,#0077ff);
+background:linear-gradient(90deg,#a855f7,#7c3aed);
 border:none;
 padding:12px 26px;
 border-radius:10px;
@@ -70,14 +70,14 @@ transform:scale(1.05);
 position:fixed;
 width:230px;
 height:100vh;
-background:#0d1b2a;
+background:#140b2b;
 padding-top:30px;
 box-shadow:3px 0 15px rgba(0,0,0,.4);
 }
 
 .sidebar h2{
 text-align:center;
-color:#00aaff;
+color:#a855f7;
 }
 
 /* LINKS SIDEBAR */
@@ -97,11 +97,11 @@ position:relative;
 /* hover deslizando */
 
 .sidebar a:hover{
-background:#162c47;
+background:#221544;
 padding-left:32px;
 }
 
-/* linha azul lateral */
+/* linha roxa lateral */
 
 .sidebar a::before{
 content:"";
@@ -110,7 +110,7 @@ left:0;
 top:0;
 height:100%;
 width:0px;
-background:#00aaff;
+background:#a855f7;
 transition:.25s;
 }
 
@@ -121,7 +121,7 @@ width:4px;
 /* item ativo */
 
 .sidebar a.active{
-background:#162c47;
+background:#221544;
 padding-left:32px;
 }
 
@@ -132,7 +132,7 @@ width:4px;
 /* ícones mudam cor ativo */
 
 .sidebar a.active i{
-color:#00aaff;
+color:#a855f7;
 }
 
 /* CONTENT */
@@ -150,7 +150,7 @@ display:none;
 /* CARD */
 
 .card{
-background:#111f36;
+background:#1b1036;
 padding:30px;
 border-radius:15px;
 box-shadow:0 0 20px rgba(0,0,0,.3);
@@ -167,8 +167,8 @@ transform:translateY(-5px);
 input{
 padding:12px;
 margin:10px;
-background:#0d1b2a;
-border:1px solid #24406c;
+background:#140b2b;
+border:1px solid #3b1f73;
 border-radius:8px;
 color:white;
 }
@@ -199,7 +199,7 @@ to{opacity:1;}
 
 <div id="splash">
 
-<div class="logo">Antiina</div>
+<div class="logo">Pluvie</div>
 
 <div class="typing" id="typing"></div>
 
@@ -212,7 +212,7 @@ to{opacity:1;}
 
 <div id="sidebar" class="sidebar hidden">
 
-<h2>Antiina</h2>
+<h2>Pluvie</h2>
 
 <a onclick="page('home',this)" class="active">
 <i class="fa-solid fa-house"></i> Home
@@ -244,7 +244,7 @@ to{opacity:1;}
 
 <h1>Bem-vindo</h1>
 
-<p>Painel Antiina carregado com sucesso.</p>
+<p>Painel Pluvie carregado com sucesso.</p>
 
 </div>
 
@@ -317,7 +317,7 @@ Abrir player
 
 <footer>
 
-Antiina v2.2
+Pluvie v2.2
 
 </footer>
 
@@ -343,7 +343,6 @@ setTimeout(digitar,60);
 window.onload=digitar;
 
 
-
 function enter(){
 
 splash.style.opacity=0;
@@ -359,7 +358,6 @@ content.classList.remove("hidden");
 },600);
 
 }
-
 
 
 function page(p,element){
@@ -380,7 +378,6 @@ element.classList.add("active");
 }
 
 
-
 function login(){
 
 if(user.value=="admin" && pass.value=="admin"){
@@ -396,7 +393,6 @@ alert("Login OK");
 }
 
 
-
 function logout(){
 
 localStorage.removeItem("admin");
@@ -404,7 +400,6 @@ localStorage.removeItem("admin");
 painel.classList.add("hidden");
 
 }
-
 
 
 if(localStorage.admin){
