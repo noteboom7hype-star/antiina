@@ -33,8 +33,6 @@ overflow:hidden;
 transition:.7s;
 }
 
-/* FUNDO GIRANDO */
-
 #splash::before{
 content:"";
 position:absolute;
@@ -58,7 +56,6 @@ to{transform:rotate(360deg);}
 
 .logo{
 font-size:70px;
-font-weight:700;
 background:linear-gradient(90deg,#d8b4fe,#9333ea);
 -webkit-background-clip:text;
 color:transparent;
@@ -225,13 +222,9 @@ font-size:12px;
 opacity:.6;
 }
 
-/* HIDDEN */
-
 .hidden{
 display:none;
 }
-
-/* ANIMAÇÃO */
 
 @keyframes fade{
 from{opacity:0;transform:translateY(10px);}
@@ -243,8 +236,6 @@ to{opacity:1;}
 
 <body>
 
-<!-- SPLASH -->
-
 <div id="splash">
 
 <div class="logo">Pluvie</div>
@@ -255,11 +246,7 @@ to{opacity:1;}
 
 </div>
 
-<!-- TRANSIÇÃO -->
-
 <div id="whiteTransition"></div>
-
-<!-- SIDEBAR -->
 
 <div id="sidebar" class="sidebar hidden">
 
@@ -283,87 +270,66 @@ to{opacity:1;}
 
 </div>
 
-<!-- CONTENT -->
-
 <div id="content" class="content hidden">
 
 <div id="home">
-
 <div class="card">
-
 <h1>Bem-vindo</h1>
-
 <p>Painel Pluvie carregado com sucesso.</p>
-
 </div>
-
 </div>
 
 <div id="web" class="hidden">
-
 <div class="card">
-
 <h1>NickOnline</h1>
-
 <button onclick="window.open('https://x1co.com.br:8443/')">
 Abrir player
 </button>
-
 </div>
-
 </div>
 
 <div id="rec" class="hidden">
-
 <div class="card">
-
 <h1>Receptores</h1>
-
 <p>Em breve...</p>
-
 </div>
-
 </div>
 
 <div id="admin" class="hidden">
-
 <div class="card">
-
 <h1>Login Admin</h1>
 
 <input id="user" placeholder="Usuário">
-
 <input id="pass" type="password" placeholder="Senha">
 
 <br>
 
 <button onclick="login()">Entrar</button>
-
 <button onclick="logout()">Logout</button>
 
 <div id="painel" class="hidden">
-
 <hr>
-
 <h2>Painel admin ativo</h2>
-
 <p>Status: Online</p>
+</div>
 
+</div>
 </div>
 
 </div>
 
-</div>
-
-</div>
-
-<footer>
-
-Pluvie v2.2
-
-</footer>
+<footer>Pluvie v2.2</footer>
 
 <script>
+
+const splash=document.getElementById("splash");
+const sidebar=document.getElementById("sidebar");
+const content=document.getElementById("content");
+const typing=document.getElementById("typing");
+const whiteTransition=document.getElementById("whiteTransition");
+const painel=document.getElementById("painel");
+const user=document.getElementById("user");
+const pass=document.getElementById("pass");
 
 let texto="The antenna that no one's ever seen";
 let i=0;
@@ -380,20 +346,17 @@ window.onload=digitar;
 
 function enter(){
 
-whiteTransition.style.opacity=1;
+whiteTransition.style.opacity="1";
 
 setTimeout(()=>{
 
-whiteTransition.style.opacity=0;
-
-splash.style.opacity=0;
+whiteTransition.style.opacity="0";
+splash.style.opacity="0";
 
 setTimeout(()=>{
 
 splash.style.display="none";
-
 sidebar.classList.remove("hidden");
-
 content.classList.remove("hidden");
 
 },500);
@@ -418,9 +381,9 @@ element.classList.add("active");
 
 function login(){
 
-if(user.value=="admin" && pass.value=="admin"){
+if(user.value==="admin" && pass.value==="admin"){
 
-localStorage.admin=true;
+localStorage.setItem("admin","true");
 
 painel.classList.remove("hidden");
 
@@ -433,15 +396,12 @@ alert("Login OK");
 function logout(){
 
 localStorage.removeItem("admin");
-
 painel.classList.add("hidden");
 
 }
 
-if(localStorage.admin){
-
+if(localStorage.getItem("admin")==="true"){
 painel.classList.remove("hidden");
-
 }
 
 </script>
